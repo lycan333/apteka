@@ -3,17 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\OnlineMurojatlar;
-use backend\search\OnlineMurojatlarSearch;
-use yii\filters\AccessControl;
+use backend\models\Buyurtma;
+use backend\search\BuyurtmaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * OnlineController implements the CRUD actions for OnlineMurojatlar model.
+ * BuyurtmalarController implements the CRUD actions for Buyurtma model.
  */
-class OnlineController extends Controller
+class BuyurtmalarController extends Controller
 {
     /**
      * @inheritdoc
@@ -21,16 +20,6 @@ class OnlineController extends Controller
     public function behaviors()
     {
         return [
-            'access'=>[
-                'class'=>AccessControl::className(),
-                'rules'=>[
-                    [
-                        'actions'=>['index','view'],
-                        'allow'=>true,
-                        'roles'=>['@']
-                    ]
-                ]
-            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -41,12 +30,12 @@ class OnlineController extends Controller
     }
 
     /**
-     * Lists all OnlineMurojatlar models.
+     * Lists all Buyurtma models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new OnlineMurojatlarSearch();
+        $searchModel = new BuyurtmaSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -56,7 +45,7 @@ class OnlineController extends Controller
     }
 
     /**
-     * Displays a single OnlineMurojatlar model.
+     * Displays a single Buyurtma model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -69,13 +58,13 @@ class OnlineController extends Controller
     }
 
     /**
-     * Creates a new OnlineMurojatlar model.
+     * Creates a new Buyurtma model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new OnlineMurojatlar();
+        $model = new Buyurtma();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -87,7 +76,7 @@ class OnlineController extends Controller
     }
 
     /**
-     * Updates an existing OnlineMurojatlar model.
+     * Updates an existing Buyurtma model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -107,7 +96,7 @@ class OnlineController extends Controller
     }
 
     /**
-     * Deletes an existing OnlineMurojatlar model.
+     * Deletes an existing Buyurtma model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -121,15 +110,15 @@ class OnlineController extends Controller
     }
 
     /**
-     * Finds the OnlineMurojatlar model based on its primary key value.
+     * Finds the Buyurtma model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return OnlineMurojatlar the loaded model
+     * @return Buyurtma the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = OnlineMurojatlar::findOne($id)) !== null) {
+        if (($model = Buyurtma::findOne($id)) !== null) {
             return $model;
         }
 

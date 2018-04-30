@@ -123,9 +123,7 @@
             <li class="sep"></li>
 
             <li>
-                <a href="extra-login.html">
-                    Log Out <i class="entypo-logout right"></i>
-                </a>
+                    <?= \yii\helpers\Html::a('Logout', ['site/logout'], ['data-method' => 'post']) ?>
             </li>
         </ul>
 

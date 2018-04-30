@@ -44,6 +44,7 @@ use common\widgets\Alert;
 <div class="page-container">
     <?=$this->render('//parts/sidebar');?>
     <div class="main-content">
+        <?=$this->render("//parts/header")?>
        <?=$content?>
         <br />
         <!-- lets do some work here... -->

@@ -17,6 +17,9 @@ return [
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
