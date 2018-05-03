@@ -4,9 +4,9 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\OnlineMurojatlar */
+/* @var $model frontend\models\OnlineMurojatlar */
 
-$this->title = $model->id;
+$this->title = $model->mavzu;
 $this->params['breadcrumbs'][] = ['label' => 'Online Murojatlars', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -15,24 +15,21 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
+        <?= Html::a('Ortga qaytish', ['index', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
             'level',
-            'xabar:ntext',
             'mavzu',
-            'UserId',
+            'xabar:ntext',
+            [
+                'attribute' => 'UserId',
+                'value' => function ($r) {
+                    return \backend\models\User::find()->where("id=".$r->UserId)->one()->FIO;
+                }
+            ],
         ],
     ]) ?>
 

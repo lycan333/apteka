@@ -60,7 +60,7 @@ class AptekaSearch extends AptekaModel
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'meneger' => $this->meneger,
+            'meneger' => $this->meneger0->FIO,
         ]);
 
         $query->andFilterWhere(['like', 'nomi', $this->nomi])

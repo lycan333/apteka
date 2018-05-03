@@ -7,30 +7,25 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\search\FirmaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Firmas';
+$this->title = 'Firmalar';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="firma-index">
-
     <h1><?= Html::encode($this->title) ?></h1>
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Firma', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Firma qo\'shish', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'layout'=>'{items}',
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
             'name',
-
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
     <?php Pjax::end(); ?>
-</div>

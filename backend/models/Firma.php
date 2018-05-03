@@ -39,7 +39,7 @@ class Firma extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Firma nomi',
         ];
     }
 

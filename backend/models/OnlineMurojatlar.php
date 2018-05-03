@@ -44,10 +44,10 @@ class OnlineMurojatlar extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'level' => 'Level',
+            'level' => 'Xabar turi',
             'xabar' => 'Xabar',
             'mavzu' => 'Mavzu',
-            'UserId' => 'User ID',
+            'UserId' => 'Foydalanuvchi',
         ];
     }
 }

@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Apteka */
 
-$this->title = $model->id;
+$this->title = $model->getAttribute('nomi');
 $this->params['breadcrumbs'][] = ['label' => 'Aptekas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('O\'zgartirish', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('O\'chirish', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -28,10 +28,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
             'nomi',
             'manzili:ntext',
-            'meneger',
+            [
+                'attribute' => 'meneger',
+                'format' => 'html',
+                'value' => function ($r) {
+                    return Html::a($r->meneger0->FIO, \yii\helpers\Url::to(['users/view', 'id' => $r->meneger]));
+                }
+            ],
         ],
     ]) ?>
 

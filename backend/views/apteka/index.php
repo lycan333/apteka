@@ -7,32 +7,32 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\search\AptekaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Aptekas';
+$this->title = 'Apyekalar';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="apteka-index">
-
     <h1><?= Html::encode($this->title) ?></h1>
     <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create AptekaSearch', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'layout'=>'{items}',
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'nomi',
             'manzili:ntext',
-            'meneger',
+            [
+                'attribute' => 'meneger',
+                'format' => 'html',
+                'value' => function ($r) {
+                    return Html::a($r->meneger0->FIO, \yii\helpers\Url::to(['users/view', 'id' => $r->meneger]));
+                }
+            ],
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+            'template'=>'{view}'
+            ],
         ],
     ]); ?>
     <?php Pjax::end(); ?>
-</div>

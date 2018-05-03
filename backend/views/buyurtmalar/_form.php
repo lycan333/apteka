@@ -7,21 +7,29 @@ use yii\widgets\ActiveForm;
 /* @var $model backend\models\Buyurtma */
 /* @var $form yii\widgets\ActiveForm */
 ?>
+<div class="row">
+    <div class="center-block" style="width: 50%">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    Buyurtma berish
+                </div>
+            </div>
+            <div class="panel-body">
+                <?php $form = ActiveForm::begin(); ?>
 
-<div class="buyurtma-form">
+                <?= $form->field($model, 'doriId')->textInput() ?>
 
-    <?php $form = ActiveForm::begin(); ?>
+                <?= $form->field($model, 'soni')->textInput() ?>
 
-    <?= $form->field($model, 'doriId')->textInput() ?>
+                <?= $form->field($model, 'aptekaId')->textInput() ?>
 
-    <?= $form->field($model, 'soni')->textInput() ?>
+                <div class="form-group">
+                    <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+                </div>
 
-    <?= $form->field($model, 'aptekaId')->textInput() ?>
-
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+                <?php ActiveForm::end(); ?>
+            </div>
+        </div>
     </div>
-
-    <?php ActiveForm::end(); ?>
-
 </div>

@@ -26,7 +26,7 @@ use common\widgets\Alert;
 
     <?php $this->head() ?>
 
-    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="/assets/js/jquery-1.11.0.min.js"></script>
     <script>$.noConflict();</script>
 
     <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->

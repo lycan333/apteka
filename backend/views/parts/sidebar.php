@@ -3,10 +3,11 @@
 $ar = [
     ['site/', 'Bosh sahifa', 'book'],
     ['online/', 'Murojatlar', 'users'],
-    ['main/', 'Buyurtmalar', 'feather'],
+    ['buyurtmalar/', 'Buyurtmalar', 'feather'],
     ['firma/', 'Firmalar', 'feather'],
     ['dori/', 'Mahsulotlar', 'feather'],
     ['apteka/', 'Aptekalar', 'feather'],
+    ['users/', 'Foydalanuvchilar', 'user'],
 ];
 
 

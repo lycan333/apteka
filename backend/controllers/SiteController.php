@@ -79,6 +79,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout="app";
         $OnlinesearchModel = new OnlineMurojatlarSearch();
         $OnlinedataProvider = $OnlinesearchModel->search(Yii::$app->request->queryParams);
         $BuyurtmasearchModel = new BuyurtmaSearch();

@@ -61,11 +61,11 @@ class User extends \common\models\User
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',
             'email' => 'Email',
-            'FIO' => 'Fio',
+            'FIO' => 'F.I.O',
             'tel' => 'Tel',
             'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'created_at' => 'Ro\'yhatdan o\'tgan vaqti' ,
+            'updated_at' => 'So\'ngi o\'zgartirilgan vaqt',
         ];
     }
 

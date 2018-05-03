@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\search\DoriSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Doris';
+$this->title = 'Mahsulotlar';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="dori-index">
@@ -17,18 +17,18 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Dori', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Mahsulot qo\'shish', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'layout'=>'{items}',
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'nomi',
-            'firmaId',
+            'firma.name',
             'seria',
             'madeDate',
             //'DeadLine',

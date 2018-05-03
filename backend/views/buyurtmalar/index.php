@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\search\BuyurtmaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Buyurtmas';
+$this->title = 'Buyurtmalar';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="buyurtma-index">
@@ -16,22 +16,18 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Buyurtma', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        'layout'=>'{items}',
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'doriId',
+            'dori.nomi',
             'soni',
-            'aptekaId',
+            'apteka.nomi',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+                'template'=>'{view}'],
         ],
     ]); ?>
     <?php Pjax::end(); ?>

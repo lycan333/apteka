@@ -50,10 +50,10 @@ class Dori extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'nomi' => 'Nomi',
-            'firmaId' => 'Firma ID',
-            'seria' => 'Seria',
-            'madeDate' => 'Made Date',
-            'DeadLine' => 'Dead Line',
+            'firmaId' => 'Firma nomi',
+            'seria' => 'Seriya raqami',
+            'madeDate' => 'Ishlab chiqarilgan muddati',
+            'DeadLine' => 'Tugash muddati',
         ];
     }
 
